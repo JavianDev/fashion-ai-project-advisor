@@ -24,6 +24,8 @@ export default function VirtualTryOnPage() {
   const [isCameraReady, setIsCameraReady] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [manualInputMode, setManualInputMode] = useState<boolean>(false);
+  const [analysisStarted, setAnalysisStarted] = useState(false);
+  const [userPermissionGranted, setUserPermissionGranted] = useState(false);
   const [showBodyDetectionAlert, setShowBodyDetectionAlert] = useState<boolean>(false);
   const [bodyDetectionStatus, setBodyDetectionStatus] = useState<'detecting' | 'partial' | 'complete' | 'none'>('none');
   const [lastDetectionTime, setLastDetectionTime] = useState<number>(0);
@@ -250,37 +252,77 @@ export default function VirtualTryOnPage() {
     }
   }, [genderDetectionMode, detectedGender, manualGender]);
 
-  useEffect(() => {
-    async function setupCamera() {
-      if (videoRef.current) {
+  // Function to start analysis with user permission
+  const startAnalysis = async () => {
+    if (!userPermissionGranted) {
+      setUserPermissionGranted(true);
+    }
+    setAnalysisStarted(true);
+    await setupCamera();
+  };
+
+  // Function to stop analysis
+  const stopAnalysis = () => {
+    setAnalysisStarted(false);
+    if (videoRef.current && videoRef.current.srcObject) {
+      const stream = videoRef.current.srcObject as MediaStream;
+      stream.getTracks().forEach(track => track.stop());
+      videoRef.current.srcObject = null;
+    }
+    setIsCameraReady(false);
+  };
+
+  async function setupCamera() {
+    if (videoRef.current && userPermissionGranted) {
+      try {
+        // Dynamically import TF.js and MediaPipe modules with error handling
+        tfRef.current = await import('@tensorflow/tfjs-core');
+        await import('@tensorflow/tfjs-backend-webgl');
+
+        // Use specific versions to avoid compatibility issues
+        const poseModule = await import('@mediapipe/pose');
+        const faceMeshModule = await import('@mediapipe/face_mesh');
+        const cameraUtilsModule = await import('@mediapipe/camera_utils');
+
+        poseClassRef.current = poseModule;
+        faceMeshClassRef.current = faceMeshModule;
+        cameraUtilsRef.current = cameraUtilsModule;
+
+        // Initialize TensorFlow.js backend
         try {
-          // Dynamically import TF.js and MediaPipe modules
-          tfRef.current = await import('@tensorflow/tfjs-core');
-          await import('@tensorflow/tfjs-backend-webgl');
-          poseClassRef.current = await import('@mediapipe/pose');
-          faceMeshClassRef.current = await import('@mediapipe/face_mesh');
-          cameraUtilsRef.current = await import('@mediapipe/camera_utils');
-
-          await tfRef.current.setBackend('webgl'); // Use WebGL backend for performance
+          await tfRef.current.setBackend('webgl');
           await tfRef.current.ready();
+        } catch (error) {
+          console.warn('WebGL backend failed, falling back to CPU:', error);
+          await tfRef.current.setBackend('cpu');
+          await tfRef.current.ready();
+        }
 
-          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-          videoRef.current.srcObject = stream;
-          videoRef.current.onloadedmetadata = () => {
-            videoRef.current?.play();
-            setIsCameraReady(true);
-          };
+        // Request camera permission and setup stream
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            width: { ideal: 640 },
+            height: { ideal: 480 },
+            facingMode: 'user'
+          }
+        });
 
-          // Initialize Pose
+        videoRef.current.srcObject = stream;
+        videoRef.current.onloadedmetadata = () => {
+          videoRef.current?.play();
+          setIsCameraReady(true);
+        };
+
+        // Initialize MediaPipe Pose with better error handling
+        try {
           const Pose = poseClassRef.current!.Pose;
-          const Camera = cameraUtilsRef.current!.Camera;
-          const FaceMesh = faceMeshClassRef.current!.FaceMesh;
-
           const newPose = new Pose({
             locateFile: (file: string) => {
-              return `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`;
+              // Use a more stable CDN version
+              return `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/${file}`;
             },
           });
+
           newPose.setOptions({
             modelComplexity: 1,
             smoothLandmarks: true,
@@ -289,139 +331,72 @@ export default function VirtualTryOnPage() {
             minDetectionConfidence: 0.5,
             minTrackingConfidence: 0.5,
           });
-          newPose.onResults(onPoseResults);
-          poseInstanceRef.current = newPose; // Assign to ref
 
-          // Initialize FaceMesh
+          newPose.onResults(onPoseResults);
+          poseInstanceRef.current = newPose;
+        } catch (poseError) {
+          console.error('Failed to initialize MediaPipe Pose:', poseError);
+          throw new Error('MediaPipe Pose initialization failed');
+        }
+
+        // Initialize FaceMesh with better error handling
+        try {
+          const FaceMesh = faceMeshClassRef.current!.FaceMesh;
           const newFaceMesh = new FaceMesh({
             locateFile: (file: string) => {
-              return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`;
+              return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/${file}`;
             },
           });
+
           newFaceMesh.setOptions({
             maxNumFaces: 1,
             refineLandmarks: true,
             minDetectionConfidence: 0.5,
             minTrackingConfidence: 0.5,
           });
-          newFaceMesh.onResults(onFaceMeshResults);
-          faceMeshInstanceRef.current = newFaceMesh; // Assign to ref
 
-          // Start processing video frames
+          newFaceMesh.onResults(onFaceMeshResults);
+          faceMeshInstanceRef.current = newFaceMesh;
+        } catch (faceMeshError) {
+          console.error('Failed to initialize MediaPipe FaceMesh:', faceMeshError);
+          // Continue without face mesh if it fails
+        }
+
+        // Start processing video frames
+        try {
+          const Camera = cameraUtilsRef.current!.Camera;
           const camera = new Camera(videoRef.current, {
             onFrame: async () => {
-              if (videoRef.current) {
-                await poseInstanceRef.current?.send({ image: videoRef.current });
-                await faceMeshInstanceRef.current?.send({ image: videoRef.current });
+              if (videoRef.current && analysisStarted) {
+                try {
+                  await poseInstanceRef.current?.send({ image: videoRef.current });
+                  if (faceMeshInstanceRef.current) {
+                    await faceMeshInstanceRef.current?.send({ image: videoRef.current });
+                  }
+                } catch (sendError) {
+                  console.error('Error sending frame to MediaPipe:', sendError);
+                }
               }
             },
             width: 640,
             height: 480,
           });
           camera.start();
-
-        } catch (error) {
-          console.error("Error accessing camera or setting up MediaPipe:", error);
-          alert("Could not access camera. Please ensure you have a webcam and grant permissions.");
-          setIsCameraReady(false);
+        } catch (cameraError) {
+          console.error('Failed to initialize camera processing:', cameraError);
+          throw cameraError;
         }
+
+      } catch (error) {
+        console.error("Error accessing camera or setting up MediaPipe:", error);
+        alert("Could not access camera. Please ensure you have a webcam and grant permissions.");
+        setIsCameraReady(false);
+        setAnalysisStarted(false);
       }
     }
+  }
 
-    setupCamera();
 
-    return () => {
-      if (videoRef.current && videoRef.current.srcObject) {
-        (videoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
-      }
-      poseInstanceRef.current?.close();
-      faceMeshInstanceRef.current?.close();
-    };
-  }, [onPoseResults, onFaceMeshResults]);
-
-  const startCamera = async () => {
-    try {
-      if (videoRef.current) {
-        // Dynamically import TF.js and MediaPipe modules
-        tfRef.current = await import('@tensorflow/tfjs-core');
-        await import('@tensorflow/tfjs-backend-webgl');
-        poseClassRef.current = await import('@mediapipe/pose');
-        faceMeshClassRef.current = await import('@mediapipe/face_mesh');
-        cameraUtilsRef.current = await import('@mediapipe/camera_utils');
-
-        await tfRef.current.setBackend('webgl');
-        await tfRef.current.ready();
-
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        videoRef.current.srcObject = stream;
-        videoRef.current.onloadedmetadata = () => {
-          videoRef.current?.play();
-          setIsCameraReady(true);
-        };
-
-        // Initialize MediaPipe components
-        const Pose = poseClassRef.current!.Pose;
-        const Camera = cameraUtilsRef.current!.Camera;
-        const FaceMesh = faceMeshClassRef.current!.FaceMesh;
-
-        const newPose = new Pose({
-          locateFile: (file: string) => {
-            return `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/${file}`;
-          },
-        });
-        newPose.setOptions({
-          modelComplexity: 1,
-          smoothLandmarks: true,
-          enableSegmentation: false,
-          smoothSegmentation: false,
-          minDetectionConfidence: 0.5,
-          minTrackingConfidence: 0.5,
-        });
-
-        newPose.onResults(onPoseResults);
-        poseInstanceRef.current = newPose;
-
-        const newFaceMesh = new FaceMesh({
-          locateFile: (file: string) => {
-            return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/${file}`;
-          },
-        });
-        newFaceMesh.setOptions({
-          maxNumFaces: 1,
-          refineLandmarks: true,
-          minDetectionConfidence: 0.5,
-          minTrackingConfidence: 0.5,
-        });
-
-        newFaceMesh.onResults(onFaceMeshResults);
-        faceMeshInstanceRef.current = newFaceMesh;
-
-        const camera = new Camera(videoRef.current, {
-          onFrame: async () => {
-            if (videoRef.current) {
-              await poseInstanceRef.current?.send({ image: videoRef.current });
-              await faceMeshInstanceRef.current?.send({ image: videoRef.current });
-            }
-          },
-          width: 640,
-          height: 480,
-        });
-        camera.start();
-      }
-    } catch (error) {
-      console.error('Error accessing camera:', error);
-      alert('Could not access camera. Please ensure you have granted camera permissions.');
-    }
-  };
-
-  const stopCamera = () => {
-    if (videoRef.current && videoRef.current.srcObject) {
-      const stream = videoRef.current.srcObject as MediaStream;
-      stream.getTracks().forEach(track => track.stop());
-      videoRef.current.srcObject = null;
-      setIsCameraReady(false);
-    }
-  };
 
   const handleGetRecommendation = async () => {
     setProcessing(true);
@@ -565,38 +540,67 @@ export default function VirtualTryOnPage() {
 
 
           <div className="flex gap-3">
-            <Button
-              onClick={startCamera}
-              disabled={isCameraReady}
-              className="flex-1 h-12 text-base font-medium bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg"
-            >
-              {isCameraReady ? (
-                <>
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
+            {!analysisStarted ? (
+              <Button
+                onClick={startAnalysis}
+                disabled={processing}
+                className="flex-1 h-12 text-base font-medium bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg"
+              >
+                {processing ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white/20 border-t-white mr-2"></div>
+                    Initializing...
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    🔒 Start AI Analysis
+                  </>
+                )}
+              </Button>
+            ) : (
+              <>
+                <Button
+                  disabled={true}
+                  className="flex-1 h-12 text-base font-medium bg-green-600 hover:bg-green-700 shadow-lg"
+                >
+                  <div className="w-2 h-2 bg-green-200 rounded-full animate-pulse mr-2"></div>
                   AI Vision Active
-                </>
-              ) : (
-                <>
+                </Button>
+                <Button
+                  onClick={stopAnalysis}
+                  variant="outline"
+                  className="flex-1 h-12 text-base font-medium border-2 hover:bg-slate-50 dark:hover:bg-slate-800"
+                >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
                   </svg>
-                  Start AI Analysis
-                </>
-              )}
-            </Button>
-            <Button
-              onClick={stopCamera}
-              disabled={!isCameraReady}
-              variant="outline"
-              className="flex-1 h-12 text-base font-medium border-2 hover:bg-slate-50 dark:hover:bg-slate-800"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
-              </svg>
-              Stop Analysis
-            </Button>
+                  Stop Analysis
+                </Button>
+              </>
+            )}
           </div>
+
+          {/* Privacy Notice */}
+          {!userPermissionGranted && (
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <div>
+                  <h4 className="font-medium text-blue-900 dark:text-blue-100">Privacy & Permissions</h4>
+                  <p className="text-sm text-blue-700 dark:text-blue-300 mt-1">
+                    This feature requires camera access for AI body analysis. All processing happens locally in your browser - no images are sent to servers.
+                    Click "Start AI Analysis" to grant permission and begin.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Analysis Results Panel */}
