@@ -27,6 +27,7 @@ export default function VirtualTryOnPage() {
   const [analysisStarted, setAnalysisStarted] = useState(false);
   const [userPermissionGranted, setUserPermissionGranted] = useState(false);
   const [initializationError, setInitializationError] = useState<string | null>(null);
+  const [fallbackMode, setFallbackMode] = useState(false);
   const [showBodyDetectionAlert, setShowBodyDetectionAlert] = useState<boolean>(false);
   const [bodyDetectionStatus, setBodyDetectionStatus] = useState<'detecting' | 'partial' | 'complete' | 'none'>('none');
   const [lastDetectionTime, setLastDetectionTime] = useState<number>(0);
@@ -255,11 +256,30 @@ export default function VirtualTryOnPage() {
 
   // Function to start analysis with user permission
   const startAnalysis = async () => {
-    if (!userPermissionGranted) {
-      setUserPermissionGranted(true);
+    console.log('🚀 Start Analysis button clicked');
+    try {
+      setProcessing(true);
+      setInitializationError(null);
+      setFallbackMode(false);
+
+      console.log('📋 Setting permissions and states...');
+      if (!userPermissionGranted) {
+        setUserPermissionGranted(true);
+      }
+      setAnalysisStarted(true);
+
+      console.log('📷 Calling setupCamera...');
+      await setupCamera();
+      console.log('✅ Setup camera completed successfully');
+    } catch (error) {
+      console.error('❌ Error starting analysis:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      setInitializationError(`Failed to start analysis: ${errorMessage}`);
+      setAnalysisStarted(false);
+    } finally {
+      setProcessing(false);
+      console.log('🏁 Start analysis process finished');
     }
-    setAnalysisStarted(true);
-    await setupCamera();
   };
 
   // Function to stop analysis
@@ -274,16 +294,25 @@ export default function VirtualTryOnPage() {
   };
 
   async function setupCamera() {
-    if (videoRef.current && userPermissionGranted) {
+    if (videoRef.current) {
       try {
+        // Check if we're in a browser environment
+        if (typeof window === 'undefined') {
+          throw new Error('This feature is only available in the browser');
+        }
+
         // Dynamically import TF.js and MediaPipe modules with error handling
+        console.log('Loading TensorFlow.js...');
         tfRef.current = await import('@tensorflow/tfjs-core');
         await import('@tensorflow/tfjs-backend-webgl');
 
+        console.log('Loading MediaPipe modules...');
         // Use specific versions to avoid compatibility issues
         const poseModule = await import('@mediapipe/pose');
         const faceMeshModule = await import('@mediapipe/face_mesh');
         const cameraUtilsModule = await import('@mediapipe/camera_utils');
+
+        console.log('MediaPipe modules loaded:', { poseModule, faceMeshModule, cameraUtilsModule });
 
         poseClassRef.current = poseModule;
         faceMeshClassRef.current = faceMeshModule;
@@ -439,9 +468,34 @@ export default function VirtualTryOnPage() {
       } catch (error) {
         console.error("Error accessing camera or setting up MediaPipe:", error);
         const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
-        setInitializationError(`Failed to initialize: ${errorMessage}`);
-        setIsCameraReady(false);
-        setAnalysisStarted(false);
+
+        // Try fallback mode with just camera access
+        try {
+          console.log('Attempting fallback mode with camera only...');
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              width: { ideal: 640 },
+              height: { ideal: 480 },
+              facingMode: 'user'
+            }
+          });
+
+          if (videoRef.current) {
+            videoRef.current.srcObject = stream;
+            videoRef.current.onloadedmetadata = () => {
+              videoRef.current?.play();
+              setIsCameraReady(true);
+              setFallbackMode(true);
+            };
+          }
+
+          console.log('Fallback mode activated - camera only');
+        } catch (fallbackError) {
+          console.error('Fallback mode also failed:', fallbackError);
+          setInitializationError(`Failed to initialize: ${errorMessage}. Camera access also failed.`);
+          setIsCameraReady(false);
+          setAnalysisStarted(false);
+        }
       }
     }
   }
@@ -634,6 +688,23 @@ export default function VirtualTryOnPage() {
             )}
           </div>
 
+          {/* Fallback Mode Notice */}
+          {fallbackMode && (
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-4 border border-yellow-200 dark:border-yellow-800">
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-yellow-600 dark:text-yellow-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+                <div>
+                  <h4 className="font-medium text-yellow-900 dark:text-yellow-100">Fallback Mode Active</h4>
+                  <p className="text-sm text-yellow-700 dark:text-yellow-300 mt-1">
+                    AI body analysis is not available, but camera preview is working. You can still use manual input for measurements.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Privacy Notice */}
           {!userPermissionGranted && !initializationError && (
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
@@ -672,6 +743,14 @@ export default function VirtualTryOnPage() {
                       setInitializationError(null);
                       setAnalysisStarted(false);
                       setUserPermissionGranted(false);
+                      setFallbackMode(false);
+                      // Stop any existing camera stream
+                      if (videoRef.current && videoRef.current.srcObject) {
+                        const stream = videoRef.current.srcObject as MediaStream;
+                        stream.getTracks().forEach(track => track.stop());
+                        videoRef.current.srcObject = null;
+                      }
+                      setIsCameraReady(false);
                     }}
                     variant="outline"
                     size="sm"
