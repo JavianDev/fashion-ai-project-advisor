@@ -1,0 +1,7 @@
+Bust, Waist, Hip Measurements and Body Shape:
+  - Hourglass: Bust and hip measurements are roughly equal, with a significantly smaller waist. Emphasize the waist with belts, wrap dresses, and fitted tops.
+  - Rectangle: Bust, waist, and hip measurements are fairly similar. Create curves with ruffles, peplums, and belted styles. Add volume to shoulders and hips.
+  - Pear: Hips are wider than bust and waist. Balance the figure by adding volume to the upper body with statement sleeves, padded shoulders, and bright tops. Darker bottoms can be flattering.
+  - Apple: Broader midsection, narrower hips and shoulders. Draw attention to legs and décolletage. Empire waist tops, A-line dresses, and straight-leg pants work well.
+  - Inverted Triangle: Shoulders are wider than hips. Balance the figure by adding volume to the lower body with A-line skirts, wide-leg pants, and patterned bottoms. V-necks can soften the shoulder line.
+  - Athletic: Muscular build, often with broad shoulders and narrow hips. Highlight curves with fitted clothing, wrap dresses, and belted waists. V-necks can soften broad shoulders.

@@ -1,0 +1,41 @@
+export interface Property {
+  id: string;
+  sellerId: string;
+  title: string;
+  description: string;
+  price: number;
+  bedrooms: number;
+  bathrooms: number;
+  sqft: number;
+  propertyType: string;
+  address: string;
+  city: string;
+  state: string;
+  zip_code: string;
+  coordinates: { lat: number; lng: number };
+  features: string[];
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  expiresAt: string;
+  images: { url: string, storagePath?: string, alt?: string }[];
+  listedByBuyer: boolean;
+  buyerId?: string | null;
+  amenities?: any;
+  yearBuilt?: number | null;
+  lotSize?: number | null;
+  isMLS?: boolean;
+  mlsNumber?: string;
+  square_footage: number;
+  property_type: string;
+  seller: {
+    id: string;
+    name?: string;
+    full_name: string;
+    avatar_url: string | null;
+    role: string;
+    company?: string;
+  };
+  views?: number;
+  daysListed?: number;
+}

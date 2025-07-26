@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run i18n checks on staged files
+echo "🌍 Checking i18n compliance..."
+
+# Get staged files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(tsx?|jsx?)$')
+
+if [ -z "$STAGED_FILES" ]; then
+  echo "No TypeScript/JavaScript files staged, skipping i18n check"
+  exit 0
+fi
+
+# Check if any staged files have hardcoded strings
+echo "Checking staged files for hardcoded strings..."
+
+# Run quick scan on staged files only
+node scripts/quick-i18n-check.js $STAGED_FILES
+
+if [ $? -ne 0 ]; then
+  echo "❌ Commit blocked: Hardcoded strings found in staged files"
+  echo "💡 Run 'npm run i18n:scan' to see all issues"
+  echo "💡 Run 'npm run i18n:translate' to auto-generate translations"
+  exit 1
+fi
+
+echo "✅ i18n check passed"

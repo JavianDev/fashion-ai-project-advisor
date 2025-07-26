@@ -1,0 +1,349 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "dashboard": "Panel de Control",
+    "properties": "Propiedades",
+    "services": "Servicios",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar Sesión",
+    "getStarted": "Comenzar",
+    "buyerServices": "Servicios para Compradores",
+    "sellerServices": "Servicios para Vendedores",
+    "resources": "Recursos",
+    "settings": "Configuración",
+    "adminSettings": "Configuración de Administrador",
+    "advertise": "[es-US] Advertise",
+    "buyer": "[es-US] Buyer",
+    "seller": "[es-US] Seller",
+    "devTools": "[es-US] Dev Tools",
+    "regionTester": "[es-US] Region Tester",
+    "myAccount": "[es-US] My Account",
+    "sonobrokers": "[es-US] SoNoBrokers",
+    "sono": "[es-US] SoNo"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "confirm": "Confirmar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "clear": "Limpiar",
+    "apply": "Aplicar",
+    "submit": "Enviar",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "view": "Ver",
+    "download": "Descargar",
+    "upload": "Subir",
+    "share": "Compartir",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "select": "Seleccionar",
+    "selectAll": "Seleccionar Todo",
+    "none": "Ninguno",
+    "all": "Todo",
+    "yes": "Sí",
+    "no": "No",
+    "optional": "Opcional",
+    "required": "Requerido"
+  },
+  "countries": {
+    "canada": "Canadá",
+    "usa": "Estados Unidos",
+    "uae": "Emiratos Árabes Unidos"
+  },
+  "languages": {
+    "english": "Inglés",
+    "spanish": "Español",
+    "french": "Francés",
+    "arabic": "Árabe"
+  },
+  "userTypes": {
+    "buyer": "Comprador",
+    "seller": "Vendedor"
+  },
+  "properties": {
+    "listProperty": "Listar Propiedad",
+    "searchProperties": "Buscar Propiedades",
+    "propertyDetails": "Detalles de la Propiedad",
+    "price": "Precio",
+    "bedrooms": "Dormitorios",
+    "bathrooms": "Baños",
+    "squareFeet": "Pies Cuadrados",
+    "lotSize": "Tamaño del Lote",
+    "yearBuilt": "Año de Construcción",
+    "propertyType": "Tipo de Propiedad",
+    "status": "Estado",
+    "description": "Descripción",
+    "features": "Características",
+    "location": "Ubicación",
+    "address": "Dirección",
+    "city": "Ciudad",
+    "state": "Estado",
+    "zipCode": "Código Postal",
+    "country": "País"
+  },
+  "services": {
+    "photography": "Servicios de Fotografía",
+    "inspection": "Inspección de Vivienda",
+    "mortgage": "Servicios Hipotecarios",
+    "legal": "Servicios Legales",
+    "insurance": "Seguros",
+    "renovation": "Renovación de Vivienda",
+    "cleaning": "Servicios de Limpieza",
+    "moving": "Servicios de Mudanza",
+    "staging": "Preparación de Vivienda",
+    "valuation": "Valuación de Propiedad"
+  },
+  "forms": {
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "message": "Mensaje",
+    "subject": "Asunto",
+    "name": "Nombre",
+    "company": "Empresa",
+    "website": "Sitio Web",
+    "address": "Dirección",
+    "city": "Ciudad",
+    "state": "Estado",
+    "zipCode": "Código Postal",
+    "country": "País",
+    "tryagain": "Intentar de nuevo",
+    "oopssomethingwent": "¡Ups! Algo salió mal",
+    "somethingwentwrong": "Algo salió mal",
+    "gohome": "Ir al inicio",
+    "editproperty": "Editar propiedad",
+    "listproperty": "Listar propiedad",
+    "propertyinformation": "Información de la propiedad",
+    "propertyimages": "Imágenes de la propiedad",
+    "contactsupport": "Contactar soporte",
+    "pagenotfound": "Página no encontrada",
+    "userprofile": "Perfil de usuario",
+    "phonenumber": "Número de teléfono",
+    "emailaddress": "Dirección de correo electrónico",
+    "firstname": "Nombre",
+    "lastname": "Apellido",
+    "savechanges": "Guardar cambios",
+    "sendmessage": "Enviar mensaje"
+  },
+  "errors": {
+    "required": "Este campo es requerido",
+    "invalidEmail": "Por favor ingrese un correo electrónico válido",
+    "invalidPhone": "Por favor ingrese un número de teléfono válido",
+    "minLength": "Debe tener al menos {{min}} caracteres",
+    "maxLength": "No debe tener más de {{max}} caracteres",
+    "networkError": "Error de red. Por favor intente de nuevo.",
+    "serverError": "Error del servidor. Por favor intente más tarde.",
+    "notFound": "Página no encontrada",
+    "unauthorized": "No está autorizado para acceder a esta página",
+    "forbidden": "Acceso prohibido"
+  },
+  "success": {
+    "saved": "Guardado exitosamente",
+    "updated": "Actualizado exitosamente",
+    "deleted": "Eliminado exitosamente",
+    "sent": "Enviado exitosamente",
+    "uploaded": "Subido exitosamente",
+    "downloaded": "Descargado exitosamente"
+  },
+  "footer": {
+    "allRightsReserved": "Todos los derechos reservados",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "cookiePolicy": "Política de Cookies",
+    "support": "Soporte",
+    "documentation": "Documentación",
+    "api": "API",
+    "status": "Estado",
+    "sonoBrokers": "[es-US] SoNo Brokers",
+    "listProperty": "[es-US] List Property",
+    "professionalServices": "[es-US] Professional Services",
+    "howItWorks": "[es-US] How It Works",
+    "contactLegal": "[es-US] Contact & Legal",
+    "marketplaceLegalNotice": "[es-US] SoNoBrokers Marketplace Legal Notice",
+    "platformDescription": "[es-US] Platform Description",
+    "generalDisclaimers": "[es-US] General Disclaimers"
+  },
+  "auth": {
+    "welcomeBack": "Bienvenido de vuelta",
+    "createAccount": "Crear una cuenta",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "resetPassword": "Restablecer contraseña",
+    "changePassword": "Cambiar contraseña",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "rememberMe": "Recordarme",
+    "signInWith": "Iniciar sesión con {{provider}}",
+    "signUpWith": "Registrarse con {{provider}}",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "dontHaveAccount": "¿No tienes una cuenta?",
+    "signInHere": "Inicia sesión aquí",
+    "signUpHere": "Regístrate aquí"
+  },
+  "dashboard": {
+    "welcome": "Bienvenido a tu panel de control",
+    "overview": "Resumen",
+    "recentActivity": "Actividad Reciente",
+    "quickActions": "Acciones Rápidas",
+    "statistics": "Estadísticas",
+    "notifications": "Notificaciones",
+    "profile": "Perfil",
+    "account": "Cuenta",
+    "billing": "Facturación",
+    "subscription": "Suscripción"
+  },
+  "pricing": {
+    "free": "Gratis",
+    "basic": "Básico",
+    "premium": "Premium",
+    "enterprise": "Empresarial",
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "perMonth": "por mes",
+    "perYear": "por año",
+    "mostPopular": "Más Popular",
+    "choosePlan": "Elegir Plan",
+    "currentPlan": "Plan Actual",
+    "upgrade": "Actualizar",
+    "downgrade": "Degradar"
+  },
+  "hero": {
+    "title": "Descubre Tu",
+    "dreamHome": "Casa de Ensueño",
+    "inCanada": "en Estados Unidos",
+    "subtitle": "Evita las comisiones y conéctate directamente con propietarios en los 50 estados. Ahorra miles mientras encuentras tu hogar americano perfecto."
+  },
+  "buttons": {
+    "browseProperties": "Explorar Propiedades",
+    "listProperty": "Listar Tu Propiedad"
+  },
+  "homepage": {
+    "badge": "Plataforma Sin Comisiones Premier de América",
+    "title": "Encuentra Tu",
+    "titleHighlight": "Sueño Americano",
+    "titleEnd": "Hogar",
+    "subtitle": "Evita las comisiones y conéctate directamente con propietarios en los 50 estados. Ahorra miles mientras encuentras tu hogar americano perfecto.",
+    "whyChoose": "¿Por Qué Elegir SoNoBrokers USA?",
+    "whyChooseSubtitle": "La plataforma inmobiliaria sin comisiones más innovadora de América, revolucionando las transacciones de propiedades.",
+    "features": {
+      "zeroCommission": {
+        "title": "Cero Comisiones",
+        "description": "Ahorra miles en comisiones tradicionales de agentes. Mantén más dinero para tu hogar del sueño americano."
+      },
+      "nationwide": {
+        "title": "Cobertura Nacional",
+        "description": "De Nueva York a California, Alaska a Florida - cubrimos los 50 estados con experiencia local."
+      },
+      "mlsIntegration": {
+        "title": "Integración MLS",
+        "description": "Acceso directo a datos del Servicio de Listado Múltiple con actualizaciones en tiempo real e información verificada."
+      },
+      "directCommunication": {
+        "title": "Comunicación Directa",
+        "description": "Conéctate directamente con propietarios y compradores. Sin intermediarios, negociaciones transparentes."
+      },
+      "marketIntelligence": {
+        "title": "Inteligencia de Mercado",
+        "description": "Análisis avanzados, tendencias de precios e información de vecindarios impulsados por big data."
+      },
+      "licensedProfessionals": {
+        "title": "Profesionales Licenciados",
+        "description": "Acceso a profesionales inmobiliarios, abogados y proveedores de servicios licenciados por el estado."
+      }
+    },
+    "coverage": {
+      "title": "Cobertura de Costa a Costa",
+      "subtitle": "Sirviendo los 50 estados con experiencia local y alcance nacional.",
+      "regions": {
+        "northeast": "Noreste",
+        "southeast": "Sureste",
+        "westCoast": "Costa Oeste",
+        "southwest": "Suroeste",
+        "alaskaHawaii": "Alaska y Hawái"
+      }
+    },
+    "professionals": {
+      "title": "Profesionales Licenciados",
+      "subtitle": "Conéctate con profesionales verificados en los 50 estados para transacciones sin problemas.",
+      "realEstateAttorneys": {
+        "title": "Abogados Inmobiliarios",
+        "description": "Abogados licenciados por el estado especializados en derecho de propiedad y cierres.",
+        "features": [
+          "Revisión de Contratos",
+          "Seguro de Título",
+          "Servicios de Cierre"
+        ]
+      },
+      "mortgageBrokers": {
+        "title": "Corredores Hipotecarios",
+        "description": "Profesionales hipotecarios licenciados con acceso a cientos de prestamistas.",
+        "features": [
+          "Búsqueda de Tasas",
+          "Pre-aprobación",
+          "Procesamiento de Préstamos"
+        ]
+      },
+      "photography": {
+        "title": "Fotografía y Medios",
+        "description": "Servicios profesionales de fotografía inmobiliaria y marketing.",
+        "features": [
+          "Fotografía HDR",
+          "Tours Virtuales",
+          "Videos con Drones"
+        ]
+      }
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "subtitle": "Proceso simple y transparente diseñado para el mercado inmobiliario americano.",
+      "steps": {
+        "signUp": {
+          "step": "01",
+          "title": "Regístrate Gratis",
+          "description": "Crea tu cuenta y verifica tu identidad. Elige tu estado y preferencias de propiedad."
+        },
+        "searchList": {
+          "step": "02",
+          "title": "Buscar o Listar",
+          "description": "Explora listados integrados con MLS o lista tu propiedad con fotos profesionales."
+        },
+        "connectClose": {
+          "step": "03",
+          "title": "Conectar y Cerrar",
+          "description": "Conéctate directamente con compradores/vendedores. Usa nuestra red de profesionales para el cierre."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Encontrar Tu Hogar del Sueño Americano?",
+      "subtitle": "Únete a miles de americanos que han ahorrado millones en comisiones a nivel nacional.",
+      "getStarted": "Comenzar Hoy",
+      "learnMore": "Saber Más"
+    },
+    "stats": {
+      "activeProperties": "75k+",
+      "activePropertiesLabel": "Propiedades Activas",
+      "happyClients": "40k+",
+      "happyClientsLabel": "Clientes Felices",
+      "statesCovered": "50",
+      "statesCoveredLabel": "Estados Cubiertos",
+      "commissionSaved": "$4.2B+",
+      "commissionSavedLabel": "Comisión Ahorrada"
+    }
+  }
+}

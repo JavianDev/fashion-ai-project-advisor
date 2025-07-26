@@ -1,0 +1,337 @@
+{
+  "navigation": {
+    "home": "الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "properties": "العقارات",
+    "services": "الخدمات",
+    "about": "حول",
+    "contact": "اتصل بنا",
+    "signIn": "تسجيل الدخول",
+    "signUp": "إنشاء حساب",
+    "signOut": "تسجيل الخروج",
+    "getStarted": "ابدأ الآن",
+    "buyerServices": "خدمات المشترين",
+    "sellerServices": "خدمات البائعين",
+    "resources": "الموارد",
+    "settings": "الإعدادات",
+    "adminSettings": "إعدادات المدير",
+    "advertise": "[ar-AE] Advertise",
+    "buyer": "[ar-AE] Buyer",
+    "seller": "[ar-AE] Seller",
+    "devTools": "[ar-AE] Dev Tools",
+    "regionTester": "[ar-AE] Region Tester",
+    "myAccount": "[ar-AE] My Account",
+    "sonobrokers": "[ar-AE] SoNoBrokers",
+    "sono": "[ar-AE] SoNo"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "confirm": "تأكيد",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "search": "بحث",
+    "filter": "تصفية",
+    "sort": "ترتيب",
+    "clear": "مسح",
+    "apply": "تطبيق",
+    "submit": "إرسال",
+    "close": "إغلاق",
+    "open": "فتح",
+    "view": "عرض",
+    "download": "تحميل",
+    "upload": "رفع",
+    "share": "مشاركة",
+    "copy": "نسخ",
+    "copied": "تم النسخ!",
+    "select": "اختيار",
+    "selectAll": "اختيار الكل",
+    "none": "لا شيء",
+    "all": "الكل",
+    "yes": "نعم",
+    "no": "لا",
+    "optional": "اختياري",
+    "required": "مطلوب"
+  },
+  "countries": {
+    "canada": "كندا",
+    "usa": "الولايات المتحدة",
+    "uae": "دولة الإمارات العربية المتحدة"
+  },
+  "languages": {
+    "english": "الإنجليزية",
+    "spanish": "الإسبانية",
+    "french": "الفرنسية",
+    "arabic": "العربية"
+  },
+  "userTypes": {
+    "buyer": "مشتري",
+    "seller": "بائع"
+  },
+  "properties": {
+    "listProperty": "إدراج عقار",
+    "searchProperties": "البحث عن العقارات",
+    "propertyDetails": "تفاصيل العقار",
+    "price": "السعر",
+    "bedrooms": "غرف النوم",
+    "bathrooms": "الحمامات",
+    "squareFeet": "القدم المربع",
+    "lotSize": "حجم القطعة",
+    "yearBuilt": "سنة البناء",
+    "propertyType": "نوع العقار",
+    "status": "الحالة",
+    "description": "الوصف",
+    "features": "المميزات",
+    "location": "الموقع",
+    "address": "العنوان",
+    "city": "المدينة",
+    "state": "الإمارة",
+    "zipCode": "الرمز البريدي",
+    "country": "البلد"
+  },
+  "services": {
+    "photography": "خدمات التصوير",
+    "inspection": "فحص المنزل",
+    "mortgage": "خدمات الرهن العقاري",
+    "legal": "الخدمات القانونية",
+    "insurance": "التأمين",
+    "renovation": "تجديد المنزل",
+    "cleaning": "خدمات التنظيف",
+    "moving": "خدمات النقل",
+    "staging": "تجهيز المنزل",
+    "valuation": "تقييم العقار"
+  },
+  "forms": {
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "message": "الرسالة",
+    "subject": "الموضوع",
+    "name": "الاسم",
+    "company": "الشركة",
+    "website": "الموقع الإلكتروني",
+    "address": "العنوان",
+    "city": "المدينة",
+    "state": "الإمارة",
+    "zipCode": "الرمز البريدي",
+    "country": "البلد",
+    "tryagain": "حاول مرة أخرى",
+    "oopssomethingwent": "عذراً! حدث خطأ ما",
+    "somethingwentwrong": "حدث خطأ ما",
+    "gohome": "العودة للرئيسية",
+    "editproperty": "تعديل العقار",
+    "listproperty": "إدراج عقار",
+    "propertyinformation": "معلومات العقار",
+    "propertyimages": "صور العقار",
+    "contactsupport": "اتصل بالدعم",
+    "pagenotfound": "الصفحة غير موجودة",
+    "userprofile": "الملف الشخصي",
+    "phonenumber": "رقم الهاتف",
+    "emailaddress": "عنوان البريد الإلكتروني",
+    "firstname": "الاسم الأول",
+    "lastname": "اسم العائلة",
+    "savechanges": "حفظ التغييرات",
+    "sendmessage": "إرسال رسالة"
+  },
+  "errors": {
+    "required": "هذا الحقل مطلوب",
+    "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+    "invalidPhone": "يرجى إدخال رقم هاتف صحيح",
+    "minLength": "يجب أن يكون على الأقل {{min}} أحرف",
+    "maxLength": "يجب ألا يزيد عن {{max}} حرف",
+    "networkError": "خطأ في الشبكة. يرجى المحاولة مرة أخرى.",
+    "serverError": "خطأ في الخادم. يرجى المحاولة لاحقاً.",
+    "notFound": "الصفحة غير موجودة",
+    "unauthorized": "غير مخول للوصول إلى هذه الصفحة",
+    "forbidden": "الوصول محظور"
+  },
+  "success": {
+    "saved": "تم الحفظ بنجاح",
+    "updated": "تم التحديث بنجاح",
+    "deleted": "تم الحذف بنجاح",
+    "sent": "تم الإرسال بنجاح",
+    "uploaded": "تم الرفع بنجاح",
+    "downloaded": "تم التحميل بنجاح"
+  },
+  "footer": {
+    "allRightsReserved": "جميع الحقوق محفوظة",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsOfService": "شروط الخدمة",
+    "cookiePolicy": "سياسة ملفات تعريف الارتباط",
+    "support": "الدعم",
+    "documentation": "التوثيق",
+    "api": "واجهة برمجة التطبيقات",
+    "status": "الحالة",
+    "sonoBrokers": "[ar-AE] SoNo Brokers",
+    "listProperty": "[ar-AE] List Property",
+    "professionalServices": "[ar-AE] Professional Services",
+    "howItWorks": "[ar-AE] How It Works",
+    "contactLegal": "[ar-AE] Contact & Legal",
+    "marketplaceLegalNotice": "[ar-AE] SoNoBrokers Marketplace Legal Notice",
+    "platformDescription": "[ar-AE] Platform Description",
+    "generalDisclaimers": "[ar-AE] General Disclaimers"
+  },
+  "auth": {
+    "welcomeBack": "مرحباً بعودتك",
+    "createAccount": "إنشاء حساب",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "changePassword": "تغيير كلمة المرور",
+    "currentPassword": "كلمة المرور الحالية",
+    "newPassword": "كلمة المرور الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "rememberMe": "تذكرني",
+    "signInWith": "تسجيل الدخول باستخدام {{provider}}",
+    "signUpWith": "إنشاء حساب باستخدام {{provider}}",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "signInHere": "سجل الدخول هنا",
+    "signUpHere": "أنشئ حساباً هنا"
+  },
+  "dashboard": {
+    "welcome": "مرحباً بك في لوحة التحكم",
+    "overview": "نظرة عامة",
+    "recentActivity": "النشاط الأخير",
+    "quickActions": "الإجراءات السريعة",
+    "statistics": "الإحصائيات",
+    "notifications": "الإشعارات",
+    "profile": "الملف الشخصي",
+    "account": "الحساب",
+    "billing": "الفواتير",
+    "subscription": "الاشتراك"
+  },
+  "pricing": {
+    "free": "مجاني",
+    "basic": "أساسي",
+    "premium": "مميز",
+    "enterprise": "للشركات",
+    "monthly": "شهري",
+    "yearly": "سنوي",
+    "perMonth": "في الشهر",
+    "perYear": "في السنة",
+    "mostPopular": "الأكثر شعبية",
+    "choosePlan": "اختر الخطة",
+    "currentPlan": "الخطة الحالية",
+    "upgrade": "ترقية",
+    "downgrade": "تخفيض"
+  },
+  "hero": {
+    "title": "اكتشف",
+    "dreamHome": "منزل أحلامك",
+    "inCanada": "في دولة الإمارات",
+    "subtitle": "تجنب رسوم العمولة وتواصل مباشرة مع أصحاب العقارات في جميع الإمارات السبع. وفر الآلاف أثناء العثور على منزلك المثالي في الإمارات."
+  },
+  "buttons": {
+    "browseProperties": "تصفح العقارات",
+    "listProperty": "أدرج عقارك"
+  },
+  "homepage": {
+    "badge": "[ar-AE] America's Premier Commission-Free Platform",
+    "title": "[ar-AE] Find Your Perfect",
+    "titleHighlight": "[ar-AE] American Dream",
+    "titleEnd": "[ar-AE] Home",
+    "subtitle": "[ar-AE] Skip the commission fees and connect directly with property owners across all 50 states. Save thousands while finding your perfect American home.",
+    "whyChoose": "[ar-AE] Why Choose SoNoBrokers USA?",
+    "whyChooseSubtitle": "[ar-AE] America's most innovative commission-free real estate platform, revolutionizing property transactions.",
+    "features": {
+      "zeroCommission": {
+        "title": "رسوم عمولة صفر",
+        "description": "[ar-AE] Save thousands on traditional realtor commissions. Keep more money for your American dream home."
+      },
+      "nationwide": {
+        "title": "[ar-AE] Nationwide Coverage",
+        "description": "[ar-AE] From New York to California, Alaska to Florida - we cover all 50 states with local expertise."
+      },
+      "mlsIntegration": {
+        "title": "[ar-AE] MLS Integration",
+        "description": "[ar-AE] Direct access to Multiple Listing Service data with real-time updates and verified information."
+      },
+      "directCommunication": {
+        "title": "التواصل المباشر",
+        "description": "[ar-AE] Connect directly with property owners and buyers. No middleman, transparent negotiations."
+      },
+      "marketIntelligence": {
+        "title": "[ar-AE] Market Intelligence",
+        "description": "[ar-AE] Advanced analytics, price trends, and neighborhood insights powered by big data."
+      },
+      "licensedProfessionals": {
+        "title": "[ar-AE] Licensed Professionals",
+        "description": "[ar-AE] Access to state-licensed real estate professionals, lawyers, and service providers."
+      }
+    },
+    "coverage": {
+      "title": "[ar-AE] Coast to Coast Coverage",
+      "subtitle": "[ar-AE] Serving all 50 states with local expertise and nationwide reach.",
+      "regions": {
+        "northeast": "[ar-AE] Northeast",
+        "southeast": "[ar-AE] Southeast",
+        "westCoast": "[ar-AE] West Coast",
+        "southwest": "[ar-AE] Southwest",
+        "alaskaHawaii": "[ar-AE] Alaska & Hawaii"
+      }
+    },
+    "professionals": {
+      "title": "[ar-AE] Licensed Professionals",
+      "subtitle": "[ar-AE] Connect with verified professionals across all 50 states for seamless transactions.",
+      "realEstateAttorneys": {
+        "title": "[ar-AE] محامو العقارات",
+        "description": "[ar-AE] محامون مرخصون متخصصون في قانون العقارات والإغلاق.",
+        "features": ["[ar-AE] مراجعة العقد", "[ar-AE] تأمين الملكية", "[ar-AE] خدمات الإغلاق"]
+      },
+      "mortgageBrokers": {
+        "title": "[ar-AE] وسطاء الرهن العقاري",
+        "description": "[ar-AE] متخصصون مرخصون في الرهن العقاري مع الوصول إلى مئات المقرضين.",
+        "features": ["[ar-AE] مقارنة الأسعار", "[ar-AE] الموافقة المسبقة", "[ar-AE] معالجة القروض"]
+      },
+      "photography": {
+        "title": "[ar-AE] التصوير والإعلام",
+        "description": "[ar-AE] خدمات التصوير العقاري المهني والتسويق.",
+        "features": ["[ar-AE] تصوير HDR", "[ar-AE] جولات افتراضية", "[ar-AE] فيديوهات الطائرات المسيرة"]
+      }
+    },
+    "howItWorks": {
+      "title": "[ar-AE] How It Works",
+      "subtitle": "[ar-AE] Simple, transparent process designed for the American real estate market.",
+      "steps": {
+        "signUp": {
+          "step": "[ar-AE] 01",
+          "title": "[ar-AE] Sign Up Free",
+          "description": "[ar-AE] Create your account and verify identity. Choose your state and property preferences."
+        },
+        "searchList": {
+          "step": "[ar-AE] 02",
+          "title": "[ar-AE] Search or List",
+          "description": "[ar-AE] Browse MLS-integrated listings or list your property with professional photos."
+        },
+        "connectClose": {
+          "step": "[ar-AE] 03",
+          "title": "[ar-AE] Connect & Close",
+          "description": "[ar-AE] Connect directly with buyers/sellers. Use our network of professionals for closing."
+        }
+      }
+    },
+    "cta": {
+      "title": "[ar-AE] Ready to Find Your American Dream Home?",
+      "subtitle": "[ar-AE] Join thousands of Americans who have saved millions in commission fees nationwide.",
+      "getStarted": "[ar-AE] Get Started Today",
+      "learnMore": "[ar-AE] Learn More"
+    },
+    "stats": {
+      "activeProperties": "[ar-AE] 75k+",
+      "activePropertiesLabel": "[ar-AE] Active Properties",
+      "happyClients": "[ar-AE] 40k+",
+      "happyClientsLabel": "[ar-AE] Happy Clients",
+      "statesCovered": "[ar-AE] 50",
+      "statesCoveredLabel": "[ar-AE] States Covered",
+      "commissionSaved": "[ar-AE] $4.2B+",
+      "commissionSavedLabel": "[ar-AE] Commission Saved"
+    }
+  }
+}

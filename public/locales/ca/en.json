@@ -1,0 +1,77 @@
+{
+  "common": {
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "next": "Next",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success!"
+  },
+  "navigation": {
+    "home": "Home",
+    "properties": "Properties",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
+  },
+  "property": {
+    "title": "Properties in Canada",
+    "search": "Search Properties",
+    "filters": {
+      "province": "Province",
+      "city": "City",
+      "propertyType": "Property Type",
+      "priceRange": "Price Range",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms"
+    },
+    "types": {
+      "house": "House",
+      "condo": "Condo",
+      "townhouse": "Townhouse",
+      "apartment": "Apartment",
+      "land": "Land"
+    }
+  },
+  "currency": {
+    "symbol": "$",
+    "code": "CAD",
+    "name": "Canadian Dollar"
+  },
+  "regions": {
+    "provinces": {
+      "AB": "Alberta",
+      "BC": "British Columbia",
+      "MB": "Manitoba",
+      "NB": "New Brunswick",
+      "NL": "Newfoundland and Labrador",
+      "NS": "Nova Scotia",
+      "ON": "Ontario",
+      "PE": "Prince Edward Island",
+      "QC": "Quebec",
+      "SK": "Saskatchewan",
+      "NT": "Northwest Territories",
+      "NU": "Nunavut",
+      "YT": "Yukon"
+    }
+  },
+  "services": {
+    "title": "Real Estate Services",
+    "legal": "Legal Services",
+    "mortgage": "Mortgage Services",
+    "photography": "Photography",
+    "inspection": "Home Inspection",
+    "moving": "Moving Services",
+    "insurance": "Insurance"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "i18n: Scan Current File",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/quick-i18n-check.js", "${file}"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": {
+        "owner": "i18n",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^\\s*Line (\\d+): \"(.*)\"$",
+          "file": 1,
+          "line": 2,
+          "message": 3
+        }
+      }
+    },
+    {
+      "label": "i18n: Full Scan",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "i18n:scan"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "i18n: Auto-translate Missing Keys",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "i18n:translate"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "i18n: Validate Coverage",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "i18n:validate"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    }
+  ]
+}

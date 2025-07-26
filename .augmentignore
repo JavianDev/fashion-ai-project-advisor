@@ -1,0 +1,60 @@
+# Augment ignore file - exclude these paths from indexing
+
+# Node.js dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+#.env
+#.env.local
+#.env.development.local
+#.env.test.local
+#.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Coverage reports
+coverage/
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Prisma generated files
+prisma/generated/
+
+# Documentation build
+docs/build/

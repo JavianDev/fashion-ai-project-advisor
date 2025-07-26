@@ -1,0 +1,23 @@
+Casual Occasions:
+  - Examples: Weekend outings, informal gatherings, everyday wear.
+  - Suggestions: Jeans, t-shirts, casual dresses, sneakers, comfortable sweaters. Focus on comfort and relaxed styles.
+
+Smart Casual Occasions:
+  - Examples: Dinner with friends, casual business meetings, creative workplaces.
+  - Suggestions: Chinos, dark wash jeans, button-down shirts, blouses, blazers, loafers, stylish flats. A step up from casual, but not formal.
+
+Business Professional Occasions:
+  - Examples: Corporate meetings, formal presentations, traditional offices.
+  - Suggestions: Tailored suits, dress shirts, blouses, pencil skirts, dress pants, closed-toe heels or dress shoes. Conservative and polished.
+
+Cocktail/Semi-Formal Occasions:
+  - Examples: Weddings, evening parties, formal dinners.
+  - Suggestions: Cocktail dresses, elegant jumpsuits, dark suits, dress shirts, ties. Focus on sophisticated fabrics and cuts.
+
+Formal/Black Tie Occasions:
+  - Examples: Galas, opera, very formal weddings.
+  - Suggestions: Floor-length gowns, tuxedos with bow ties, dress shoes. The most formal attire.
+
+Sporty/Active Occasions:
+  - Examples: Gym, outdoor activities, sports events.
+  - Suggestions: Athletic wear, breathable fabrics, comfortable shoes. Prioritize functionality and movement.

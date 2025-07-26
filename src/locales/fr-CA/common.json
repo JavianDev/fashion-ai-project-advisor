@@ -1,0 +1,337 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "dashboard": "Tableau de Bord",
+    "properties": "Propriétés",
+    "services": "Services",
+    "about": "À Propos",
+    "contact": "Contact",
+    "signIn": "Se Connecter",
+    "signUp": "S'Inscrire",
+    "signOut": "Se Déconnecter",
+    "getStarted": "Commencer",
+    "buyerServices": "Services aux Acheteurs",
+    "sellerServices": "Services aux Vendeurs",
+    "resources": "Ressources",
+    "settings": "Paramètres",
+    "adminSettings": "Paramètres Administrateur",
+    "advertise": "[fr-CA] Advertise",
+    "buyer": "[fr-CA] Buyer",
+    "seller": "[fr-CA] Seller",
+    "devTools": "[fr-CA] Dev Tools",
+    "regionTester": "[fr-CA] Region Tester",
+    "myAccount": "[fr-CA] My Account",
+    "sonobrokers": "[fr-CA] SoNoBrokers",
+    "sono": "[fr-CA] SoNo"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "clear": "Effacer",
+    "apply": "Appliquer",
+    "submit": "Soumettre",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "view": "Voir",
+    "download": "Télécharger",
+    "upload": "Téléverser",
+    "share": "Partager",
+    "copy": "Copier",
+    "copied": "Copié!",
+    "select": "Sélectionner",
+    "selectAll": "Tout Sélectionner",
+    "none": "Aucun",
+    "all": "Tout",
+    "yes": "Oui",
+    "no": "Non",
+    "optional": "Optionnel",
+    "required": "Requis"
+  },
+  "countries": {
+    "canada": "Canada",
+    "usa": "États-Unis",
+    "uae": "Émirats Arabes Unis"
+  },
+  "languages": {
+    "english": "Anglais",
+    "spanish": "Espagnol",
+    "french": "Français",
+    "arabic": "Arabe"
+  },
+  "userTypes": {
+    "buyer": "Acheteur",
+    "seller": "Vendeur"
+  },
+  "properties": {
+    "listProperty": "Lister une Propriété",
+    "searchProperties": "Rechercher des Propriétés",
+    "propertyDetails": "Détails de la Propriété",
+    "price": "Prix",
+    "bedrooms": "Chambres",
+    "bathrooms": "Salles de Bain",
+    "squareFeet": "Pieds Carrés",
+    "lotSize": "Taille du Terrain",
+    "yearBuilt": "Année de Construction",
+    "propertyType": "Type de Propriété",
+    "status": "Statut",
+    "description": "Description",
+    "features": "Caractéristiques",
+    "location": "Emplacement",
+    "address": "Adresse",
+    "city": "Ville",
+    "state": "Province",
+    "zipCode": "Code Postal",
+    "country": "Pays"
+  },
+  "services": {
+    "photography": "Services de Photographie",
+    "inspection": "Inspection Domiciliaire",
+    "mortgage": "Services Hypothécaires",
+    "legal": "Services Juridiques",
+    "insurance": "Assurance",
+    "renovation": "Rénovation Domiciliaire",
+    "cleaning": "Services de Nettoyage",
+    "moving": "Services de Déménagement",
+    "staging": "Mise en Scène Domiciliaire",
+    "valuation": "Évaluation de Propriété"
+  },
+  "forms": {
+    "firstName": "Prénom",
+    "lastName": "Nom de Famille",
+    "email": "Courriel",
+    "phone": "Téléphone",
+    "message": "Message",
+    "subject": "Sujet",
+    "name": "Nom",
+    "company": "Entreprise",
+    "website": "Site Web",
+    "address": "Adresse",
+    "city": "Ville",
+    "state": "Province",
+    "zipCode": "Code Postal",
+    "country": "Pays",
+    "tryagain": "Réessayer",
+    "oopssomethingwent": "Oups ! Quelque chose s'est mal passé",
+    "somethingwentwrong": "Quelque chose s'est mal passé",
+    "gohome": "Retour à l'accueil",
+    "editproperty": "Modifier la propriété",
+    "listproperty": "Inscrire une propriété",
+    "propertyinformation": "Informations sur la propriété",
+    "propertyimages": "Images de la propriété",
+    "contactsupport": "Contacter le support",
+    "pagenotfound": "Page non trouvée",
+    "userprofile": "Profil utilisateur",
+    "phonenumber": "Numéro de téléphone",
+    "emailaddress": "Adresse e-mail",
+    "firstname": "Prénom",
+    "lastname": "Nom de famille",
+    "savechanges": "Enregistrer les modifications",
+    "sendmessage": "Envoyer un message"
+  },
+  "errors": {
+    "required": "Ce champ est requis",
+    "invalidEmail": "Veuillez entrer une adresse courriel valide",
+    "invalidPhone": "Veuillez entrer un numéro de téléphone valide",
+    "minLength": "Doit contenir au moins {{min}} caractères",
+    "maxLength": "Ne doit pas dépasser {{max}} caractères",
+    "networkError": "Erreur réseau. Veuillez réessayer.",
+    "serverError": "Erreur serveur. Veuillez réessayer plus tard.",
+    "notFound": "Page non trouvée",
+    "unauthorized": "Vous n'êtes pas autorisé à accéder à cette page",
+    "forbidden": "Accès interdit"
+  },
+  "success": {
+    "saved": "Sauvegardé avec succès",
+    "updated": "Mis à jour avec succès",
+    "deleted": "Supprimé avec succès",
+    "sent": "Envoyé avec succès",
+    "uploaded": "Téléversé avec succès",
+    "downloaded": "Téléchargé avec succès"
+  },
+  "footer": {
+    "allRightsReserved": "Tous droits réservés",
+    "privacyPolicy": "Politique de Confidentialité",
+    "termsOfService": "Conditions d'Utilisation",
+    "cookiePolicy": "Politique des Cookies",
+    "support": "Support",
+    "documentation": "Documentation",
+    "api": "API",
+    "status": "Statut",
+    "sonoBrokers": "[fr-CA] SoNo Brokers",
+    "listProperty": "[fr-CA] List Property",
+    "professionalServices": "[fr-CA] Professional Services",
+    "howItWorks": "[fr-CA] How It Works",
+    "contactLegal": "[fr-CA] Contact & Legal",
+    "marketplaceLegalNotice": "[fr-CA] SoNoBrokers Marketplace Legal Notice",
+    "platformDescription": "[fr-CA] Platform Description",
+    "generalDisclaimers": "[fr-CA] General Disclaimers"
+  },
+  "auth": {
+    "welcomeBack": "Bon retour",
+    "createAccount": "Créer un compte",
+    "forgotPassword": "Mot de passe oublié?",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "changePassword": "Changer le mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "rememberMe": "Se souvenir de moi",
+    "signInWith": "Se connecter avec {{provider}}",
+    "signUpWith": "S'inscrire avec {{provider}}",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "dontHaveAccount": "Vous n'avez pas de compte?",
+    "signInHere": "Connectez-vous ici",
+    "signUpHere": "Inscrivez-vous ici"
+  },
+  "dashboard": {
+    "welcome": "Bienvenue sur votre tableau de bord",
+    "overview": "Aperçu",
+    "recentActivity": "Activité Récente",
+    "quickActions": "Actions Rapides",
+    "statistics": "Statistiques",
+    "notifications": "Notifications",
+    "profile": "Profil",
+    "account": "Compte",
+    "billing": "Facturation",
+    "subscription": "Abonnement"
+  },
+  "pricing": {
+    "free": "Gratuit",
+    "basic": "De Base",
+    "premium": "Premium",
+    "enterprise": "Entreprise",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "perMonth": "par mois",
+    "perYear": "par année",
+    "mostPopular": "Le Plus Populaire",
+    "choosePlan": "Choisir un Plan",
+    "currentPlan": "Plan Actuel",
+    "upgrade": "Améliorer",
+    "downgrade": "Rétrograder"
+  },
+  "hero": {
+    "title": "Découvrez Votre",
+    "dreamHome": "Maison de Rêve",
+    "inCanada": "au Canada",
+    "subtitle": "Évitez les frais de commission et connectez-vous directement avec les propriétaires dans les 13 provinces et territoires. Économisez des milliers en trouvant votre maison canadienne parfaite."
+  },
+  "buttons": {
+    "browseProperties": "Parcourir les Propriétés",
+    "listProperty": "Lister Votre Propriété"
+  },
+  "homepage": {
+    "badge": "[fr-CA] America's Premier Commission-Free Platform",
+    "title": "[fr-CA] Find Your Perfect",
+    "titleHighlight": "[fr-CA] American Dream",
+    "titleEnd": "[fr-CA] Home",
+    "subtitle": "[fr-CA] Skip the commission fees and connect directly with property owners across all 50 states. Save thousands while finding your perfect American home.",
+    "whyChoose": "[fr-CA] Why Choose SoNoBrokers USA?",
+    "whyChooseSubtitle": "[fr-CA] America's most innovative commission-free real estate platform, revolutionizing property transactions.",
+    "features": {
+      "zeroCommission": {
+        "title": "Frais de Commission Zéro",
+        "description": "[fr-CA] Save thousands on traditional realtor commissions. Keep more money for your American dream home."
+      },
+      "nationwide": {
+        "title": "Couverture Nationale",
+        "description": "[fr-CA] From New York to California, Alaska to Florida - we cover all 50 states with local expertise."
+      },
+      "mlsIntegration": {
+        "title": "Intégration MLS",
+        "description": "[fr-CA] Direct access to Multiple Listing Service data with real-time updates and verified information."
+      },
+      "directCommunication": {
+        "title": "Communication Directe",
+        "description": "[fr-CA] Connect directly with property owners and buyers. No middleman, transparent negotiations."
+      },
+      "marketIntelligence": {
+        "title": "[fr-CA] Market Intelligence",
+        "description": "[fr-CA] Advanced analytics, price trends, and neighborhood insights powered by big data."
+      },
+      "licensedProfessionals": {
+        "title": "[fr-CA] Licensed Professionals",
+        "description": "[fr-CA] Access to state-licensed real estate professionals, lawyers, and service providers."
+      }
+    },
+    "coverage": {
+      "title": "[fr-CA] Coast to Coast Coverage",
+      "subtitle": "[fr-CA] Serving all 50 states with local expertise and nationwide reach.",
+      "regions": {
+        "northeast": "[fr-CA] Northeast",
+        "southeast": "[fr-CA] Southeast",
+        "westCoast": "[fr-CA] West Coast",
+        "southwest": "[fr-CA] Southwest",
+        "alaskaHawaii": "[fr-CA] Alaska & Hawaii"
+      }
+    },
+    "professionals": {
+      "title": "[fr-CA] Licensed Professionals",
+      "subtitle": "[fr-CA] Connect with verified professionals across all 50 states for seamless transactions.",
+      "realEstateAttorneys": {
+        "title": "[fr-CA] Avocats immobiliers",
+        "description": "[fr-CA] Avocats agréés spécialisés en droit immobilier et clôtures.",
+        "features": ["[fr-CA] Révision de contrat", "[fr-CA] Assurance titre", "[fr-CA] Services de clôture"]
+      },
+      "mortgageBrokers": {
+        "title": "[fr-CA] Courtiers hypothécaires",
+        "description": "[fr-CA] Professionnels hypothécaires agréés avec accès à des centaines de prêteurs.",
+        "features": ["[fr-CA] Comparaison de taux", "[fr-CA] Pré-approbation", "[fr-CA] Traitement de prêt"]
+      },
+      "photography": {
+        "title": "[fr-CA] Photographie et médias",
+        "description": "[fr-CA] Services professionnels de photographie immobilière et marketing.",
+        "features": ["[fr-CA] Photographie HDR", "[fr-CA] Visites virtuelles", "[fr-CA] Vidéos de drone"]
+      }
+    },
+    "howItWorks": {
+      "title": "[fr-CA] How It Works",
+      "subtitle": "[fr-CA] Simple, transparent process designed for the American real estate market.",
+      "steps": {
+        "signUp": {
+          "step": "[fr-CA] 01",
+          "title": "[fr-CA] Sign Up Free",
+          "description": "[fr-CA] Create your account and verify identity. Choose your state and property preferences."
+        },
+        "searchList": {
+          "step": "[fr-CA] 02",
+          "title": "[fr-CA] Search or List",
+          "description": "[fr-CA] Browse MLS-integrated listings or list your property with professional photos."
+        },
+        "connectClose": {
+          "step": "[fr-CA] 03",
+          "title": "[fr-CA] Connect & Close",
+          "description": "[fr-CA] Connect directly with buyers/sellers. Use our network of professionals for closing."
+        }
+      }
+    },
+    "cta": {
+      "title": "[fr-CA] Ready to Find Your American Dream Home?",
+      "subtitle": "[fr-CA] Join thousands of Americans who have saved millions in commission fees nationwide.",
+      "getStarted": "[fr-CA] Get Started Today",
+      "learnMore": "[fr-CA] Learn More"
+    },
+    "stats": {
+      "activeProperties": "[fr-CA] 75k+",
+      "activePropertiesLabel": "[fr-CA] Active Properties",
+      "happyClients": "[fr-CA] 40k+",
+      "happyClientsLabel": "[fr-CA] Happy Clients",
+      "statesCovered": "[fr-CA] 50",
+      "statesCoveredLabel": "[fr-CA] States Covered",
+      "commissionSaved": "[fr-CA] $4.2B+",
+      "commissionSavedLabel": "[fr-CA] Commission Saved"
+    }
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "properties": "Properties",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "getStarted": "Get Started",
+    "buyerServices": "Buyer Services",
+    "sellerServices": "Seller Services",
+    "resources": "Resources",
+    "settings": "Settings",
+    "adminSettings": "Admin Settings",
+    "advertise": "[en-CA] Advertise",
+    "buyer": "[en-CA] Buyer",
+    "seller": "[en-CA] Seller",
+    "devTools": "[en-CA] Dev Tools",
+    "regionTester": "[en-CA] Region Tester",
+    "myAccount": "[en-CA] My Account",
+    "sonobrokers": "[en-CA] SoNoBrokers",
+    "sono": "[en-CA] SoNo"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "clear": "Clear",
+    "apply": "Apply",
+    "submit": "Submit",
+    "close": "Close",
+    "open": "Open",
+    "view": "View",
+    "download": "Download",
+    "upload": "Upload",
+    "share": "Share",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "select": "Select",
+    "selectAll": "Select All",
+    "none": "None",
+    "all": "All",
+    "yes": "Yes",
+    "no": "No",
+    "optional": "Optional",
+    "required": "Required"
+  },
+  "countries": {
+    "canada": "Canada",
+    "usa": "United States",
+    "uae": "United Arab Emirates"
+  },
+  "languages": {
+    "english": "English",
+    "spanish": "Spanish",
+    "french": "French",
+    "arabic": "Arabic"
+  },
+  "userTypes": {
+    "buyer": "Buyer",
+    "seller": "Seller"
+  },
+  "properties": {
+    "listProperty": "List Property",
+    "searchProperties": "Search Properties",
+    "propertyDetails": "Property Details",
+    "price": "Price",
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "squareFeet": "Square Feet",
+    "lotSize": "Lot Size",
+    "yearBuilt": "Year Built",
+    "propertyType": "Property Type",
+    "status": "Status",
+    "description": "Description",
+    "features": "Features",
+    "location": "Location",
+    "address": "Address",
+    "city": "City",
+    "state": "Province",
+    "zipCode": "Postal Code",
+    "country": "Country"
+  },
+  "services": {
+    "photography": "Photography Services",
+    "inspection": "Home Inspection",
+    "mortgage": "Mortgage Services",
+    "legal": "Legal Services",
+    "insurance": "Insurance",
+    "renovation": "Home Renovation",
+    "cleaning": "Cleaning Services",
+    "moving": "Moving Services",
+    "staging": "Home Staging",
+    "valuation": "Property Valuation"
+  },
+  "forms": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "subject": "Subject",
+    "name": "Name",
+    "company": "Company",
+    "website": "Website",
+    "address": "Address",
+    "city": "City",
+    "state": "Province",
+    "zipCode": "Postal Code",
+    "country": "Country",
+    "tryagain": "Try Again",
+    "oopssomethingwent": "Oops! Something went wrong",
+    "somethingwentwrong": "Something went wrong",
+    "gohome": "Go Home",
+    "editproperty": "Edit Property",
+    "listproperty": "List Property",
+    "propertyinformation": "Property Information",
+    "propertyimages": "Property Images",
+    "contactsupport": "Contact Support",
+    "pagenotfound": "Page Not Found",
+    "userprofile": "User Profile",
+    "phonenumber": "Phone Number",
+    "emailaddress": "Email Address",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "savechanges": "Save Changes",
+    "sendmessage": "Send Message"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidPhone": "Please enter a valid phone number",
+    "minLength": "Must be at least {{min}} characters",
+    "maxLength": "Must be no more than {{max}} characters",
+    "networkError": "Network error. Please try again.",
+    "serverError": "Server error. Please try again later.",
+    "notFound": "Page not found",
+    "unauthorized": "You are not authorised to access this page",
+    "forbidden": "Access forbidden"
+  },
+  "success": {
+    "saved": "Successfully saved",
+    "updated": "Successfully updated",
+    "deleted": "Successfully deleted",
+    "sent": "Successfully sent",
+    "uploaded": "Successfully uploaded",
+    "downloaded": "Successfully downloaded"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "support": "Support",
+    "documentation": "Documentation",
+    "api": "API",
+    "status": "Status",
+    "sonoBrokers": "[en-CA] SoNo Brokers",
+    "listProperty": "[en-CA] List Property",
+    "professionalServices": "[en-CA] Professional Services",
+    "howItWorks": "[en-CA] How It Works",
+    "contactLegal": "[en-CA] Contact & Legal",
+    "marketplaceLegalNotice": "[en-CA] SoNoBrokers Marketplace Legal Notice",
+    "platformDescription": "[en-CA] Platform Description",
+    "generalDisclaimers": "[en-CA] General Disclaimers"
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "createAccount": "Create an account",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password",
+    "changePassword": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "rememberMe": "Remember me",
+    "signInWith": "Sign in with {{provider}}",
+    "signUpWith": "Sign up with {{provider}}",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "signInHere": "Sign in here",
+    "signUpHere": "Sign up here"
+  },
+  "dashboard": {
+    "welcome": "Welcome to your dashboard",
+    "overview": "Overview",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "statistics": "Statistics",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "account": "Account",
+    "billing": "Billing",
+    "subscription": "Subscription"
+  },
+  "pricing": {
+    "free": "Free",
+    "basic": "Basic",
+    "premium": "Premium",
+    "enterprise": "Enterprise",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "perMonth": "per month",
+    "perYear": "per year",
+    "mostPopular": "Most Popular",
+    "choosePlan": "Choose Plan",
+    "currentPlan": "Current Plan",
+    "upgrade": "Upgrade",
+    "downgrade": "Downgrade"
+  },
+  "hero": {
+    "title": "Discover Your",
+    "dreamHome": "Dream Home",
+    "inCanada": "in Canada",
+    "subtitle": "Skip the commission fees and connect directly with property owners across all 13 provinces and territories. Save thousands while finding your perfect Canadian home."
+  },
+  "buttons": {
+    "browseProperties": "Browse Properties",
+    "listProperty": "List Your Property"
+  },
+  "homepage": {
+    "badge": "[en-CA] America's Premier Commission-Free Platform",
+    "title": "[en-CA] Find Your Perfect",
+    "titleHighlight": "[en-CA] American Dream",
+    "titleEnd": "[en-CA] Home",
+    "subtitle": "[en-CA] Skip the commission fees and connect directly with property owners across all 50 states. Save thousands while finding your perfect American home.",
+    "whyChoose": "[en-CA] Why Choose SoNoBrokers USA?",
+    "whyChooseSubtitle": "[en-CA] America's most innovative commission-free real estate platform, revolutionizing property transactions.",
+    "features": {
+      "zeroCommission": {
+        "title": "[en-CA] Zero Commission Fees",
+        "description": "[en-CA] Save thousands on traditional realtor commissions. Keep more money for your American dream home."
+      },
+      "nationwide": {
+        "title": "[en-CA] Nationwide Coverage",
+        "description": "[en-CA] From New York to California, Alaska to Florida - we cover all 50 states with local expertise."
+      },
+      "mlsIntegration": {
+        "title": "[en-CA] MLS Integration",
+        "description": "[en-CA] Direct access to Multiple Listing Service data with real-time updates and verified information."
+      },
+      "directCommunication": {
+        "title": "[en-CA] Direct Communication",
+        "description": "[en-CA] Connect directly with property owners and buyers. No middleman, transparent negotiations."
+      },
+      "marketIntelligence": {
+        "title": "[en-CA] Market Intelligence",
+        "description": "[en-CA] Advanced analytics, price trends, and neighborhood insights powered by big data."
+      },
+      "licensedProfessionals": {
+        "title": "[en-CA] Licensed Professionals",
+        "description": "[en-CA] Access to state-licensed real estate professionals, lawyers, and service providers."
+      }
+    },
+    "coverage": {
+      "title": "[en-CA] Coast to Coast Coverage",
+      "subtitle": "[en-CA] Serving all 50 states with local expertise and nationwide reach.",
+      "regions": {
+        "northeast": "[en-CA] Northeast",
+        "southeast": "[en-CA] Southeast",
+        "westCoast": "[en-CA] West Coast",
+        "southwest": "[en-CA] Southwest",
+        "alaskaHawaii": "[en-CA] Alaska & Hawaii"
+      }
+    },
+    "professionals": {
+      "title": "[en-CA] Licensed Professionals",
+      "subtitle": "[en-CA] Connect with verified professionals across all 50 states for seamless transactions.",
+      "realEstateAttorneys": {
+        "title": "[en-CA] Real Estate Attorneys",
+        "description": "[en-CA] State-licensed attorneys specializing in property law and closings.",
+        "features": ["[en-CA] Contract Review", "[en-CA] Title Insurance", "[en-CA] Closing Services"]
+      },
+      "mortgageBrokers": {
+        "title": "[en-CA] Mortgage Brokers",
+        "description": "[en-CA] Licensed mortgage professionals with access to hundreds of lenders.",
+        "features": ["[en-CA] Rate Shopping", "[en-CA] Pre-approval", "[en-CA] Loan Processing"]
+      },
+      "photography": {
+        "title": "[en-CA] Photography & Media",
+        "description": "[en-CA] Professional real estate photography and marketing services.",
+        "features": ["[en-CA] HDR Photography", "[en-CA] Virtual Tours", "[en-CA] Drone Videos"]
+      }
+    },
+    "howItWorks": {
+      "title": "[en-CA] How It Works",
+      "subtitle": "[en-CA] Simple, transparent process designed for the American real estate market.",
+      "steps": {
+        "signUp": {
+          "step": "[en-CA] 01",
+          "title": "[en-CA] Sign Up Free",
+          "description": "[en-CA] Create your account and verify identity. Choose your state and property preferences."
+        },
+        "searchList": {
+          "step": "[en-CA] 02",
+          "title": "[en-CA] Search or List",
+          "description": "[en-CA] Browse MLS-integrated listings or list your property with professional photos."
+        },
+        "connectClose": {
+          "step": "[en-CA] 03",
+          "title": "[en-CA] Connect & Close",
+          "description": "[en-CA] Connect directly with buyers/sellers. Use our network of professionals for closing."
+        }
+      }
+    },
+    "cta": {
+      "title": "[en-CA] Ready to Find Your American Dream Home?",
+      "subtitle": "[en-CA] Join thousands of Americans who have saved millions in commission fees nationwide.",
+      "getStarted": "[en-CA] Get Started Today",
+      "learnMore": "[en-CA] Learn More"
+    },
+    "stats": {
+      "activeProperties": "[en-CA] 75k+",
+      "activePropertiesLabel": "[en-CA] Active Properties",
+      "happyClients": "[en-CA] 40k+",
+      "happyClientsLabel": "[en-CA] Happy Clients",
+      "statesCovered": "[en-CA] 50",
+      "statesCoveredLabel": "[en-CA] States Covered",
+      "commissionSaved": "[en-CA] $4.2B+",
+      "commissionSavedLabel": "[en-CA] Commission Saved"
+    }
+  }
+}
