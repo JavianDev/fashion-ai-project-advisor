@@ -289,8 +289,6 @@ export default function ProjectAdvisorPage() {
                 Get AI Recommendation
               </Button>
             </div>
-      </form>
-
           </form>
         </CardContent>
       </Card>

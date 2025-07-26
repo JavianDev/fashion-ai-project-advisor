@@ -75,8 +75,8 @@ export default function VisualRecommendations({
     await shoppingService.trackClick(item, 'visual-recommendations');
 
     // Track click for analytics
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'affiliate_click', {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'affiliate_click', {
         item_id: item.id,
         item_name: item.name,
         item_brand: item.brand,
