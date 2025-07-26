@@ -81,7 +81,9 @@ npm run start:custom # Start custom HTTPS server
 ### AI & Computer Vision
 - **MediaPipe**: Real-time pose detection and body analysis
 - **TensorFlow.js**: Client-side machine learning
-- **RAG System**: Retrieval-Augmented Generation for recommendations
+- **RAG System**: Retrieval-Augmented Generation using Xenova Transformers
+- **Embedding Model**: all-MiniLM-L6-v2 for semantic text understanding
+- **Knowledge Base**: Curated fashion expertise in structured text format
 
 ### Backend & APIs
 - **Next.js API Routes**: Serverless backend functions
@@ -119,10 +121,13 @@ src/
 
 ### AI-Powered Recommendations
 The platform uses a sophisticated RAG (Retrieval-Augmented Generation) system that:
-- Analyzes user profiles and preferences
-- Matches clothing items to body types and occasions
-- Provides contextual fashion advice
-- Learns from user interactions
+- **Semantic Search**: Uses `Xenova/all-MiniLM-L6-v2` embeddings for intelligent content retrieval
+- **Personalized Analysis**: Analyzes user profiles including body type, skin tone, and measurements
+- **Contextual Matching**: Matches clothing items to body types, occasions, and style preferences
+- **Knowledge Base**: Curated fashion expertise covering body types, color theory, and occasion dressing
+- **Real-time Processing**: Generates recommendations in ~200-500ms using cosine similarity search
+
+📚 **[View Complete RAG Documentation](docs/RAG_SYSTEM_DOCUMENTATION.md)** for technical implementation details, API usage, and architecture overview.
 
 ### Virtual Try-On Technology
 Advanced computer vision capabilities:
