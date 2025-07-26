@@ -26,6 +26,7 @@ export default function VirtualTryOnPage() {
   const [manualInputMode, setManualInputMode] = useState<boolean>(false);
   const [analysisStarted, setAnalysisStarted] = useState(false);
   const [userPermissionGranted, setUserPermissionGranted] = useState(false);
+  const [initializationError, setInitializationError] = useState<string | null>(null);
   const [showBodyDetectionAlert, setShowBodyDetectionAlert] = useState<boolean>(false);
   const [bodyDetectionStatus, setBodyDetectionStatus] = useState<'detecting' | 'partial' | 'complete' | 'none'>('none');
   const [lastDetectionTime, setLastDetectionTime] = useState<number>(0);
@@ -315,7 +316,22 @@ export default function VirtualTryOnPage() {
 
         // Initialize MediaPipe Pose with better error handling
         try {
-          const Pose = poseClassRef.current!.Pose;
+          const poseModule = poseClassRef.current! as any;
+          let Pose;
+
+          // Handle different import structures
+          if (poseModule.Pose) {
+            Pose = poseModule.Pose;
+          } else if (poseModule.default && poseModule.default.Pose) {
+            Pose = poseModule.default.Pose;
+          } else if (typeof poseModule === 'function') {
+            Pose = poseModule;
+          } else {
+            console.error('MediaPipe Pose structure:', poseModule);
+            console.error('Available properties:', Object.keys(poseModule));
+            throw new Error('Could not find Pose constructor in MediaPipe module');
+          }
+
           const newPose = new Pose({
             locateFile: (file: string) => {
               // Use a more stable CDN version
@@ -336,35 +352,67 @@ export default function VirtualTryOnPage() {
           poseInstanceRef.current = newPose;
         } catch (poseError) {
           console.error('Failed to initialize MediaPipe Pose:', poseError);
+          console.error('Available pose module properties:', Object.keys(poseClassRef.current || {}));
           throw new Error('MediaPipe Pose initialization failed');
         }
 
         // Initialize FaceMesh with better error handling
         try {
-          const FaceMesh = faceMeshClassRef.current!.FaceMesh;
-          const newFaceMesh = new FaceMesh({
-            locateFile: (file: string) => {
-              return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/${file}`;
-            },
-          });
+          const faceMeshModule = faceMeshClassRef.current!;
+          let FaceMesh;
 
-          newFaceMesh.setOptions({
-            maxNumFaces: 1,
-            refineLandmarks: true,
-            minDetectionConfidence: 0.5,
-            minTrackingConfidence: 0.5,
-          });
+          // Handle different import structures
+          if (faceMeshModule.FaceMesh) {
+            FaceMesh = faceMeshModule.FaceMesh;
+          } else if (faceMeshModule.default && faceMeshModule.default.FaceMesh) {
+            FaceMesh = faceMeshModule.default.FaceMesh;
+          } else if (typeof faceMeshModule === 'function') {
+            FaceMesh = faceMeshModule;
+          } else {
+            console.warn('Could not find FaceMesh constructor, skipping face mesh initialization');
+            FaceMesh = null;
+          }
 
-          newFaceMesh.onResults(onFaceMeshResults);
-          faceMeshInstanceRef.current = newFaceMesh;
+          if (FaceMesh) {
+            const newFaceMesh = new FaceMesh({
+              locateFile: (file: string) => {
+                return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/${file}`;
+              },
+            });
+
+            newFaceMesh.setOptions({
+              maxNumFaces: 1,
+              refineLandmarks: true,
+              minDetectionConfidence: 0.5,
+              minTrackingConfidence: 0.5,
+            });
+
+            newFaceMesh.onResults(onFaceMeshResults);
+            faceMeshInstanceRef.current = newFaceMesh;
+          }
         } catch (faceMeshError) {
           console.error('Failed to initialize MediaPipe FaceMesh:', faceMeshError);
+          console.warn('Continuing without face mesh functionality');
           // Continue without face mesh if it fails
         }
 
         // Start processing video frames
         try {
-          const Camera = cameraUtilsRef.current!.Camera;
+          const cameraUtilsModule = cameraUtilsRef.current! as any;
+          let Camera;
+
+          // Handle different import structures
+          if (cameraUtilsModule.Camera) {
+            Camera = cameraUtilsModule.Camera;
+          } else if (cameraUtilsModule.default && cameraUtilsModule.default.Camera) {
+            Camera = cameraUtilsModule.default.Camera;
+          } else if (typeof cameraUtilsModule === 'function') {
+            Camera = cameraUtilsModule;
+          } else {
+            console.error('MediaPipe Camera structure:', cameraUtilsModule);
+            throw new Error('Could not find Camera constructor in MediaPipe camera utils');
+          }
+
           const camera = new Camera(videoRef.current, {
             onFrame: async () => {
               if (videoRef.current && analysisStarted) {
@@ -384,12 +432,14 @@ export default function VirtualTryOnPage() {
           camera.start();
         } catch (cameraError) {
           console.error('Failed to initialize camera processing:', cameraError);
+          console.error('Available camera utils properties:', Object.keys(cameraUtilsRef.current || {}));
           throw cameraError;
         }
 
       } catch (error) {
         console.error("Error accessing camera or setting up MediaPipe:", error);
-        alert("Could not access camera. Please ensure you have a webcam and grant permissions.");
+        const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
+        setInitializationError(`Failed to initialize: ${errorMessage}`);
         setIsCameraReady(false);
         setAnalysisStarted(false);
       }
@@ -585,7 +635,7 @@ export default function VirtualTryOnPage() {
           </div>
 
           {/* Privacy Notice */}
-          {!userPermissionGranted && (
+          {!userPermissionGranted && !initializationError && (
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
               <div className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -597,6 +647,38 @@ export default function VirtualTryOnPage() {
                     This feature requires camera access for AI body analysis. All processing happens locally in your browser - no images are sent to servers.
                     Click "Start AI Analysis" to grant permission and begin.
                   </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Initialization Error */}
+          {initializationError && (
+            <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-4 border border-red-200 dark:border-red-800">
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+                <div>
+                  <h4 className="font-medium text-red-900 dark:text-red-100">Initialization Error</h4>
+                  <p className="text-sm text-red-700 dark:text-red-300 mt-1">
+                    {initializationError}
+                  </p>
+                  <p className="text-sm text-red-600 dark:text-red-400 mt-2">
+                    Please try refreshing the page or use manual input mode instead.
+                  </p>
+                  <Button
+                    onClick={() => {
+                      setInitializationError(null);
+                      setAnalysisStarted(false);
+                      setUserPermissionGranted(false);
+                    }}
+                    variant="outline"
+                    size="sm"
+                    className="mt-3 border-red-300 text-red-700 hover:bg-red-100 dark:border-red-600 dark:text-red-300 dark:hover:bg-red-900/30"
+                  >
+                    Try Again
+                  </Button>
                 </div>
               </div>
             </div>
